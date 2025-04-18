@@ -1,14 +1,14 @@
 @font-face {
     font-family: cursiva;
-    src: url(BiroScriptPlus.woff);
+    src: url(/assets/fonts/BiroScriptPlus.woff);
 }
 @font-face {
     font-family: gyre;
-    src: url(texgyre.woff);
+    src: url(/assets/fonts/texgyre.woff);
 }
 @font-face {
     font-family: sinoreta;
-    src: url(sinoreta.woff);
+    src: url(/assets/fonts/sinoreta.woff);
 }
 
 
