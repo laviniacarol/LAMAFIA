@@ -1,0 +1,48 @@
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px;
+  font-family: 'Tajawal', sans-serif;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.164);
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+  font-size: 1.3rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: #1377eb;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.icon :hover {
+  color: #1377eb;
+}
+
+#menu-icon {
+  font-size: 1.5rem;
+}

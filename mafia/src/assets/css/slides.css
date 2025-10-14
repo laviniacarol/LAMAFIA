@@ -1,0 +1,324 @@
+@font-face {
+    font-family: cursiva;
+    src: url(/assets/fonts/BiroScriptPlus.woff);
+}
+@font-face {
+    font-family: gyre;
+    src: url(/assets/fonts/texgyre.woff);
+}
+@font-face {
+    font-family: sinoreta;
+    src: url(/assets/fonts/sinoreta.woff);
+}
+
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 8px;
+    padding: 7px;
+}
+
+/* pagina inicial com vídeo*/
+#page1 {
+    position: relative;
+    width: 100%;
+    height: 95vh; 
+    overflow: hidden; 
+    border-radius: 10px;
+}
+
+#page1 video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 17px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*banner com qr code*/
+#page2 img {
+    max-width: 100%; 
+    height: auto; 
+    width: 4000px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+
+#page3 img{
+    height: 975px;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 7px;
+}
+
+/*"NOSSA COLEÇÃO FIGHT LIKE A GIRL*/
+#center-text {
+    font-size: 30px;
+    margin-left: 14px;
+} 
+#center-text h1{
+    line-height: 1.1;
+    font-weight: 550;
+}
+
+#center-text h5 {
+    color: red;
+    cursor: pointer;
+    line-height: 1.1;
+}
+
+.center-text h2{
+    color: rgb(0, 0, 0);
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.center-text span{
+    color: red;
+}
+
+/*FORMATAÇÃO DE TODOS OS PRODUTOS A VENDA*/
+.products {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    cursor: pointer;
+}
+
+.product {
+    flex: 1 1 calc(25% - 20px);
+    margin: 10px; 
+    box-sizing: border-box; 
+}
+
+.product img {
+    width: 100%;
+    height: 600px; 
+    object-fit: contain; 
+    transition: all .40s;
+}
+
+.product img:hover{
+    transform: scale(0.9);
+}
+
+/*ÍCONES DE CORAÇÃO E ESTRELA*/
+.coração {
+    font-size: 28px;
+    left: 30px;
+    position: relative;
+}
+
+.coração :hover{
+    color: red;
+    
+}
+
+.estrela i{
+    color: rgb(255, 153, 0);
+    font-size: 28px;
+    position: relative;
+    left: 240px;
+    bottom: 30px;
+}
+
+/*FORMATAÇÃO DOS PREÇOS*/
+.preço h4 {
+    color: rgba(255, 0, 0, 0.651);
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 500;
+    left: 30px;
+    position: relative;
+    bottom: 40px;
+    font-style: italic;
+}
+
+.preço p{
+    font-size: 20px;
+    font-weight: 600px;
+    left: 30px;
+    position: relative;
+    bottom: 57px;
+}
+
+/*TEXTO SOB VÍDEO*/
+.main-text{
+    position: absolute;
+    top: 100px;
+    right: 1430px;
+    font-size: 50px;
+    color: aliceblue;
+    text-transform: capitalize;
+}
+
+.main-text h5{
+    color: rgb(158, 8, 8);
+    font-size: 35px;
+}
+
+.main-text h3 {
+    font-style: italic;
+}
+
+/*BOTÃO QUE FICA NO VÍDEO(click para adquirir)*/
+.button a{
+    padding: 12px 25px;
+    border-radius: 50px;
+    background-color: whitesmoke;
+    color: #000000;
+    cursor: pointer;
+    margin-top: 50px;
+    font-size: 20px;
+    transition: all .42s ease;
+
+}
+
+.button a:hover{
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 1rem;
+}
+
+/* pagina dos modelos masculinos*/
+.banner-text{
+    position: absolute;
+    top: 3105px;
+    left: 1120px;
+    font-size: 130px;
+    align-items: center;
+}
+
+/*frase:estamos lançando..*/
+.banner-text p{
+    font-size: 25px;
+    align-items: center;
+    line-height: 25px;
+    left: 50px;
+    position: absolute;
+    top: 385px;
+}
+
+/* frase: LABELLA MAFIA */
+.banner-text h1{
+    color: red;
+    font-size: 110px;
+    font-weight: 900;
+    line-height: 80px;
+}
+
+/* palavra: HOMEM*/
+.banner-text h3{
+    font-size: 70px;
+    left: 120px;
+    position: absolute;
+    top: 220px;
+}
+/*palavra: NOVA*/
+.banner-text span{
+    color: red;
+    font-family: cursiva;
+}
+
+
+/* botão banner masculino */
+.btn a {
+    padding: 8px 12px;
+    border-radius: 50px; 
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    transition: background-color 0.4s ease;
+    font-size: 25px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.btn a {
+    top: 520px;
+    left: 135px;
+}
+
+.btn a:hover {
+    background-color: #ce2323;
+    color: rgb(255, 255, 255);
+}
+
+
+/* tênis */
+#tenisbanner img {
+    max-width: 100%; 
+    height: auto; 
+    width: 4000px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+
+/* pagina modelo gigi hadid*/
+.gigi img {
+    left: 800px;
+    position: relative;
+    height: 720px;
+   }
+   
+   .bannert {
+       position: absolute;
+       top: 4950px;
+       left: 90px;
+   }
+   
+   .bannert h1{
+       font-size: 135px;
+       font-family: cursiva;
+       font-style: italic;
+       right: 50px;    
+       left: 90px;
+   }
+   
+   .bannert span{
+       color: red;
+       font-family: cursiva;
+   }
+   
+   .bannert h3{
+       color: #000000;
+       font-size: 55px;
+       align-items: center;
+       font-weight: lighter;
+       left: 100px;
+       position: absolute;
+       font-family: sinoreta;
+       top: 305px;
+   }
+   
+    .bannert h2 {
+        left: 150px;
+        position: absolute;
+        top: 120px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .bannert p{
+        font-size: 20px;
+        left: 100px;
+        position: absolute;
+        top: 480px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+   .bannert i{
+      font-size: 70px;
+      display: inline;
+      padding: 10px;
+      position: relative;
+      top: 190px;
+      cursor: pointer;
+      left: 80px;
+   }
+
+   
