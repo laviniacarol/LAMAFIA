@@ -59,7 +59,7 @@ const Sale: React.FC = () => {
                 <h4>COM DESCONTO</h4>
                 <p>{produto.preco}</p>
                 <Link to="/checkout" className={styles.botaoCarrinho}>
-                  Adicionar ao carrinho
+                  Comprar agora
                 </Link>
               </div>
             </div>

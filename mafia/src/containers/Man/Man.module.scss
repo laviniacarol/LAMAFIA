@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "Biro";
+  src: url('../../assets/fonts/BiroScriptPlus.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+.text {
+    color: black;
+    font-family: "Inter", sans-serif;
+}
+
+.container {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+}
+
+.p {
+    color: red;
+    font-weight: 700;
+    font-size: 120px;
+    padding-left: 30px;
+    line-height: 87px;
+    margin-top: 40px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.h3 {
+    font-size: 90px;
+    margin-top: 5px;
+    padding-left: 250px;
+}
+
+.hr {
+    width: 340px;
+    border: 2px solid red;
+    margin-left: 250px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    padding-bottom: 0;
+}
+
+.p2 {
+      text-align: center;
+      font-family: "Inter", sans-serif;
+      line-height: 25px;
+      font-size: 34px;
+      padding-left: 70px;
+      font-weight: 600;
+      padding-bottom: 30px;
+}
+
+.span {
+    color: red;
+    font-weight: 700;
+    font-family: Biro;
+    font-size: 30px;
+}
+
+.button {
+    background-color: black;
+    color: white;
+    border: none;
+    font-weight: 700;
+    border-radius: 80px;
+    padding: 25px 42px;
+    margin-top: 20px;
+    margin-left: 220px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+    transition: 0.4s ease-in;
+}
+
+.button:hover {
+    background-color: #ff0000;
+    transition: 0.3s;
+}

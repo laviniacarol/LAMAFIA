@@ -1,6 +1,6 @@
 import firstman from "../../assets/imagens/joni.jpg"
 import secondman from "../../assets/imagens/chico.jpg"
-import styles from './index.module.scss';
+import styles from './Man.module.scss';
 
 function Man () {
     return (
@@ -10,10 +10,10 @@ function Man () {
             <img className={styles.secondman} src={secondman} alt="Segundo Homem" />
             
             <div className={styles.text}>
-                <p>LABELLA<br/>MAFIA</p>
-                <h3>HOMEM</h3>
-                <p>Estamos lançando nossa <span>Nova</span> linha para eles</p>
-                <button>Vem conferir!</button>
+                <p className={styles.p}>LABELLA<br/>MAFIA</p><hr className={styles.hr}/>
+                <h3 className={styles.h3}>HOMEM</h3>
+                <p className={styles.p2}>Estamos lançando nossa <span className={styles.span}>NOVA</span> <br/> linha para eles</p>
+                <button className={styles.button}>Vem conferir!</button>
             </div>
         </div>
     );

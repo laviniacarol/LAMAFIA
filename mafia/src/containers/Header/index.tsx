@@ -9,7 +9,7 @@ function Header() {
 
       <nav className={styles.nav}>
         <a href="#">NOVIDADES</a>
-        <Link to="/sale">SALE</Link> 
+        <a href="#">SALE</a>
         <a href="#">TÊNIS</a>
         <a href="#">COLLAB</a>
       </nav>
