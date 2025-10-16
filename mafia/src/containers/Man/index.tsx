@@ -12,8 +12,8 @@ function Man () {
             <div className={styles.text}>
                 <p className={styles.p}>LABELLA<br/>MAFIA</p><hr className={styles.hr}/>
                 <h3 className={styles.h3}>HOMEM</h3>
-                <p className={styles.p2}>Estamos lançando nossa <span className={styles.span}>NOVA</span> <br/> linha para eles</p>
-                <button className={styles.button}>Vem conferir!</button>
+                <p className={styles.p2}>estamos lançando nossa <span className={styles.span}>NOVA</span> <br/> linha para eles.</p>
+                <button className={styles.button}>vem conferir!</button>
             </div>
         </div>
     );

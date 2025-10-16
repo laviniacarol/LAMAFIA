@@ -56,6 +56,7 @@ const Sale: React.FC = () => {
                 <i className="bx bxs-star-half"></i>
               </div>
               <div className={styles.preco}>
+                <h1 className={styles.title}>Gym</h1>
                 <h4>COM DESCONTO</h4>
                 <p>{produto.preco}</p>
                 <Link to="/checkout" className={styles.botaoCarrinho}>

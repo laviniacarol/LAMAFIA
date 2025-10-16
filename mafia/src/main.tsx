@@ -7,6 +7,8 @@ import Header from "./containers/Header";
 import Hero from "./containers/Hero";
 import Sale from "./containers/Sale";
 import Man from "./containers/Man";
+import Shoes from "./containers/Shoes";
+import Colab from "./containers/Colab";
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -15,6 +17,8 @@ createRoot(document.getElementById("root")!).render(
       <Hero />
       <Sale />
       <Man />
+      <Shoes />
+      <Colab />
       <Routes>
       </Routes>
     </Router>
