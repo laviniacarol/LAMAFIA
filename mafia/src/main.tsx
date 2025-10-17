@@ -10,6 +10,7 @@ import Man from "./containers/Man";
 import Shoes from "./containers/Shoes";
 import Colab from "./containers/Colab";
 import Acessory from "./containers/Acessory";
+import Footer from "./containers/Footer";
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")!).render(
       <Shoes />
       <Colab />
       <Acessory />
+      <Footer />
       <Routes>
       </Routes>
     </Router>

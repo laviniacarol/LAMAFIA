@@ -34,11 +34,10 @@ const Sale: React.FC = () => {
       </div>
 
       <section className={styles.trendingProduct} id="trending">
-        <div className={styles.centerText}>
-          <h2>
-            Nossa coleção <span>fight like a girl</span>
-          </h2>
-        </div>
+       <h2 className={styles.title}>
+        FIGHT <span className={styles.red}>LIKE</span> A<span className={styles.red}>GIRL</span>
+        <hr className={styles.hr} />
+      </h2>
 
         <div className={styles.products}>
           {produtos.map((produto, index) => (
