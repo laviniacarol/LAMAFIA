@@ -1,24 +1,22 @@
+@font-face {
+    font-family: biro;
+    src: url('../../assets/fonts/Biro.ttf') format('truetype');
+}
+
 .footer {
     text-align: center;
-    font-family: 'Julius Sans One', sans-serif;
+    font-family: 'biro', sans-serif;
     padding: 20px;
+    font-size: 20px;
     background-color: rgb(235, 235, 235);
     color: rgb(7, 7, 7);
+    font-weight: bold;
 
-    .line {
-        border: 0;
-        height: 2px;
-        background: linear-gradient(300deg, #474849, #e3e6ecd5, #474849);
-        margin-top: 5px auto;
-        margin-bottom: 0;
-        padding-top: 0;
-        width: 160px;
-    }
     .socialIcons {
-        margin-top: 10px;
+        margin-top: 0px;
 
         a {
-            margin: 0 10px;
+            margin: 0 15px;
             font-size: 24px;
             color: #0e0d0d;
             transition: color 0.3s, transform 0.3s;

@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 function Footer() {
     return (
         <footer className={style.footer}>
-            <p>© Dev. Carol Lavinia.<hr className={style.line}/></p>
+            <p>Dev. Carol Lavinia</p>
             <div className={style.socialIcons}>
                 <a
                     href="https://github.com/laviniacarol?tab=repositories"
