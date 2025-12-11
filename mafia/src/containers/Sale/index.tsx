@@ -12,8 +12,7 @@ import img3 from "../../assets/imagens/3.jpg";
 import img4 from "../../assets/imagens/4.jpg";
 import img5 from "../../assets/imagens/5.jpg";
 import img6 from "../../assets/imagens/6.jpg";
-import img7 from "../../assets/imagens/7.jpg";
-import img8 from "../../assets/imagens/8.jpg";
+
 
 const Sale: React.FC = () => {
   const produtos = [
@@ -23,8 +22,6 @@ const Sale: React.FC = () => {
     { img: img4, alt: "Conjuntinho Faixa Rosa", preco: "$179,00" },
     { img: img5, alt: "Conjunto Barbie Mafia", preco: "$189,00" },
     { img: img6, alt: "Coleção Playboy", preco: "$99 - $129" },
-    { img: img7, alt: "Top Bella", preco: "$112,90" },
-    { img: img8, alt: "Conjunto Hardworking", preco: "$149,90" },
   ];
 
   return (

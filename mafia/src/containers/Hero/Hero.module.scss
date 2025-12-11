@@ -1,69 +1,83 @@
 .container {
   position: relative;
   width: 100%;
-  margin: 0;
-  padding: 0;
-  height: 100vh; 
+  height: clamp(60vh, 85vh, 100vh);
   overflow: hidden;
 }
 
 .videoBackground {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   z-index: 0;
 }
 
 .content {
-  position: relative;
-  z-index: 1; 
-  color: rgb(240, 230, 230);
-  text-align: center;
-  padding-right: 1350px;
-  top: 40%;
-  transform: translateY(-50%); 
+  position: absolute;
+  z-index: 2;
+  bottom: clamp(20px, 12vw, 90px);
+  left: clamp(15px, 8vw, 90px);
+
+  color: #f0e6e6;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 
   h1 {
-    font-size: 6rem;
-    font-family: 'Julius Sans One', sans-serif;
-    margin-bottom: 10px;
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-family: "Julius Sans One", sans-serif;
     font-weight: 600;
   }
 
   h2 {
-    font-size: 2.6rem;
-    margin-bottom: 20px;
-    font-family: 'Tajawal', sans-serif;
-    animation-delay: 3.2s;
+    font-size: clamp(1rem, 3.2vw, 2rem);
+    margin-top: 10px;
+    font-family: "Tajawal", sans-serif;
     animation: fadeIn 2s forwards;
   }
 
-  
+  button {
+    margin-top: 20px;
+    padding: clamp(8px, 2vw, 14px) clamp(18px, 4vw, 34px);
+    background: #e0dddd;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    transition: 0.3s;
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateX(40px); }
-  to { opacity: 1; transform: translateX(0); }
+    &:hover {
+      background: #1c2fdd;
+      color: #fff;
+    }
+  }
 }
 
-
-
-    button {
-    padding: 10px 25px;
-    font-size: 1.5rem;
-    background-color: rgb(252, 242, 242);
-    color: rgb(0, 0, 0);
-    font-weight: 550;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* MOBILE AJUSTE — texto mais centralizado */
+@media (max-width: 768px) {
+  .content {
+    left: 20px;
+    bottom: 60px;
+    text-align: left;
+    width: 80%;
   }
+}
 
-  button:hover {
-    background-color: #000000;
-    color: white;
+/* TABLET */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .content {
+    left: clamp(30px, 6vw, 70px);
+    bottom: clamp(30px, 8vw, 100px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

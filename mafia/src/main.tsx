@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter as Router, Routes } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 //PAGES
 import Header from "./containers/Header";
@@ -23,8 +23,7 @@ createRoot(document.getElementById("root")!).render(
       <Colab />
       <Acessory />
       <Footer />
-      <Routes>
-      </Routes>
+  
     </Router>
   </React.StrictMode>
 );

@@ -11,16 +11,6 @@ function Hero() {
         loop
         muted
       />
-
-      <div className={styles.content}>
-        <h1>
-          FIGHT
-          <br />
-          LIKE A GIRL
-        </h1>
-        <h2>NEW COLLECTION</h2>
-        <button>COMPRAR AGORA</button>
-      </div>
     </div>
   );
 }

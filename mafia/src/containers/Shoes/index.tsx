@@ -1,9 +1,7 @@
 import styles from './Shoes.module.scss'
 
-// Banner
 import tenisban from '../../assets/imagens/tenisban.png'
 
-// Tênis (use .jpg se for jpg)
 import tenis1 from '../../assets/imagens/tenis1.jpg'
 import tenis2 from '../../assets/imagens/tenis2.jpg'
 import tenis3 from '../../assets/imagens/tenis3.jpg'

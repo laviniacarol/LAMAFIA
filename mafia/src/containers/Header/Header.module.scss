@@ -1,48 +1,210 @@
-
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: clamp(15px, 2vw, 22px) clamp(10px, 3vw, 30px);
+  background: #fff;
+  font-family: "Tajawal", sans-serif;
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  box-sizing: border-box;
+  margin: 0 auto;
+
+  .logo {
+    height: clamp(40px, 7vw, 60px);
+  }
+
+  .nav {
+    display: flex;
+    cursor: pointer;
+    gap: clamp(12px, 3vw, 28px);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+
+    a,
+    .dropBtn {
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      &:hover {
+        color: #2a0cd4;
+      }
+    }
+  }
+
+  .iconGroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(12px, 3vw, 22px);
+
+    a,
+    i,
+    svg {
+      display: flex;
+      align-items: center;
+    }
+
+    .cartBox {
+      position: relative;
+
+      span {
+        position: absolute;
+        top: -6px;
+        right: -8px;
+        background: black;
+        color: white;
+        padding: 2px 5px;
+        font-size: 11px;
+        border-radius: 50%;
+      }
+    }
+
+    i:hover,
+    svg:hover {
+      color: #2a0cd4;
+      cursor: pointer;
+    }
+  }
+
+  .menuIcon {
+    cursor: pointer;
+    display: none;
+  }
+}
+
+.dropdownMenu {
+  position: relative;
+
+  .dropdownBox {
+    position: absolute;
+    top: clamp(20px, 6vw, 40px); 
+    left: 0;
+    background: #fff;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+    padding: 10px 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+
+    .dropdownItem {
+      padding: 10px 18px;
+      font-size: 14px;
+      cursor: pointer;
+
+      &:hover {
+        background: #fafafa;
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 3;
+}
+
+.navMobile {
+  position: fixed;
+  top: 110px;
+  right: 0;
+  width: clamp(180px, 55vw, 280px);
+  height: 30vh;
+  background: rgb(30, 28, 28);
+  font-family: Tajawal, sans-serif;
   padding: 20px 20px;
-  font-family: 'Tajawal', sans-serif;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.164);
-}
-
-.logo {
-  height: 60px;
-  width: auto;
-}
-
-.nav {
   display: flex;
-  gap: 30px;
-  font-size: 1.3rem;
+  flex-direction: column;
+  gap: 18px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+  z-index: 999;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .menuItem {
+    display: flex;
+    flex-direction: column;
+
+    a,
+    .dropBtnMobile {
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    hr {
+      width: 0%;
+      height: 2px;
+      border: none;
+      background-color: #0048ff;
+      transition: width 0.3s ease;
+    }
+
+    &:hover hr {
+      width: 100%;
+    }
+  }
+
+  .mobileDropdownList {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    gap: 10px;
+    margin-top: 8px;
+
+    .dropdownItem {
+      color: #ddd;
+      font-size: 0.9rem;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
 }
 
-.nav a {
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-  transition: color 0.2s;
+@media (max-width: 850px) {
+  .container {
+    .nav {
+      display: none;
+    }
+
+    .menuIcon {
+      display: block;
+    }
+  }
 }
 
-.nav a:hover {
-  color: #1377eb;
-}
-
-.icon {
-  display: flex;
-  align-items: center;
-  gap: 17px;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-
-.icon :hover {
-  color: #1377eb;
-}
-
-#menu-icon {
-  font-size: 1.5rem;
+@media (min-width: 851px) {
+  .navMobile,
+  .navMobile.open,
+  .menuIcon,
+  .overlay {
+    display: none !important;
+    transform: translateX(100%) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 }
