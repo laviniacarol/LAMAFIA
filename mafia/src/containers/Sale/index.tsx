@@ -1,28 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Sale.module.scss";
+import { useCart } from '../../contexts/CartContext'; 
 
-// Banner
 import banner from "../../assets/imagens/banner.png";
 
-// Produtos
 import img1 from "../../assets/imagens/1.jpg";
 import img2 from "../../assets/imagens/2.jpg";
 import img3 from "../../assets/imagens/3.jpg";
 import img4 from "../../assets/imagens/4.jpg";
 import img5 from "../../assets/imagens/5.jpg";
 import img6 from "../../assets/imagens/6.jpg";
+import img7 from "../../assets/imagens/7.jpg";
+import img8 from "../../assets/imagens/8.jpg";
 
+import Cart from "../Cart";
 
 const Sale: React.FC = () => {
+  const { addToCart } = useCart();
+  const [cartOpen, setCartOpen] = useState(false);
+
   const produtos = [
-    { img: img1, alt: "Bella Training", preco: "$130,00" },
-    { img: img2, alt: "Pink Baby", preco: "$79,90 - $179,00" },
-    { img: img3, alt: "Top Azul Elegante", preco: "$79,90" },
-    { img: img4, alt: "Conjuntinho Faixa Rosa", preco: "$179,00" },
-    { img: img5, alt: "Conjunto Barbie Mafia", preco: "$189,00" },
-    { img: img6, alt: "Coleção Playboy", preco: "$99 - $129" },
+    { id: "bella-training", img: img1, alt: "Bella Training", preco: "R$ 130,00" },
+    { id: "pink-baby", img: img2, alt: "Pink Baby", preco: "R$ 79,90 - R$ 179,00" },
+    { id: "top-azul", img: img3, alt: "Top Azul Elegante", preco: "R$ 79,90" },
+    { id: "conjuntinho-faixa", img: img4, alt: "Conjuntinho Faixa Rosa", preco: "R$ 179,00" },
+    { id: "conjunto-barbie", img: img5, alt: "Conjunto Barbie Mafia", preco: "R$ 189,00" },
+    { id: "colecao-playboy", img: img6, alt: "Coleção Playboy", preco: "R$ 99 - R$ 129" },
+    { id: "top-bella", img: img7, alt: "Top Bella", preco: "R$ 112,90" },
+    { id: "conjunto-hardworking", img: img8, alt: "Conjunto Hardworking", preco: "R$ 149,90" },
   ];
+
+  const handleAddToCart = (produto: typeof produtos[0]) => {
+    addToCart({
+      id: produto.id,
+      img: produto.img,
+      alt: produto.alt,
+      price: produto.preco.split(" - ")[0],
+    });
+    setCartOpen(true);
+  };
 
   return (
     <>
@@ -31,10 +48,10 @@ const Sale: React.FC = () => {
       </div>
 
       <section className={styles.trendingProduct} id="trending">
-       <h2 className={styles.title}>
-        FIGHT <span className={styles.red}>LIKE</span> A<span className={styles.red}>GIRL</span>
-        <hr className={styles.hr} />
-      </h2>
+        <h2 className={styles.title}>
+          FIGHT <span className={styles.red}>LIKE</span> A<span className={styles.red}>GIRL</span>
+          <hr className={styles.hr} />
+        </h2>
 
         <div className={styles.products}>
           {produtos.map((produto, index) => (
@@ -55,14 +72,19 @@ const Sale: React.FC = () => {
                 <h1 className={styles.title}>Gym</h1>
                 <h4>COM DESCONTO</h4>
                 <p>{produto.preco}</p>
-                <Link to="/checkout" className={styles.botaoCarrinho}>
+                <button
+                  className={styles.botaoCarrinho}
+                  onClick={() => handleAddToCart(produto)}
+                >
                   Comprar agora
-                </Link>
+                </button>
               </div>
             </div>
           ))}
         </div>
       </section>
+
+      <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 };

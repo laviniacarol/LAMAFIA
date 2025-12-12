@@ -2,12 +2,15 @@ import { useState } from "react";
 import styles from "./Header.module.scss";
 import logo from "../../assets/imagens/logobella.jpg";
 import { Link } from "react-router-dom";
-import { FaChevronDown, FaShoppingCart, FaBars } from "react-icons/fa";
+import { FaChevronDown, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
+import { useCart } from "../../contexts/CartContext"; 
+import Cart from "../Cart/index"; 
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [cartCount] = useState(0); 
+  const [cartOpen, setCartOpen] = useState(false); 
+  const { cart } = useCart(); 
 
   const toggleMenu = () => setOpenMenu(!openMenu);
 
@@ -89,10 +92,10 @@ function Header() {
             <i className="bx bx-user"></i>
           </Link>
 
-          <div className={styles.cartBox}>
+          <div className={styles.cartBox} onClick={() => setCartOpen(true)}>
             <FaShoppingCart size={20} />
-            {cartCount > 0 && (
-              <span className={styles.cartCount}>{cartCount}</span>
+            {cart.length > 0 && (
+              <span className={styles.cartCount}>{cart.length}</span>
             )}
           </div>
 
@@ -106,38 +109,32 @@ function Header() {
 
       {openMenu && <div className={styles.overlay} onClick={toggleMenu}></div>}
 
-      <div
-        className={`${styles.navMobile} ${
-          openMenu ? styles.open : ""
-        }`}
-      >
+      <div className={`${styles.navMobile} ${openMenu ? styles.open : ""}`}>
         <div className={styles.menuItem}>
           <Link to="/User" onClick={toggleMenu}>
             Login / Registro
           </Link>
           <hr />
         </div>
-
         <div className={styles.menuItem}>
           <a onClick={toggleMenu}>Rastreio</a>
           <hr />
         </div>
-
         <div className={styles.menuItem}>
           <a onClick={toggleMenu}>Suporte</a>
           <hr />
         </div>
-
         <div className={styles.menuItem}>
           <a onClick={toggleMenu}>Enviados</a>
           <hr />
         </div>
-
         <div className={styles.menuItem}>
           <a onClick={toggleMenu}>Ajuda</a>
           <hr />
         </div>
       </div>
+
+      <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }
