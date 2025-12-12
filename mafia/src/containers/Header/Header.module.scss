@@ -208,3 +208,63 @@
     pointer-events: none !important;
   }
 }
+
+
+@media (max-width: 400px), (max-height: 653px) {
+  .container {
+    padding: 10px; 
+    overflow-x: hidden; 
+  }
+
+  .nav {
+    display: none; 
+  }
+
+  .menuIcon {
+    display: block; 
+  }
+
+  .iconGroup {
+    gap: 8px; 
+  }
+
+  .logo {
+    height: 40px; 
+  }
+
+  .navMobile {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .menuItem a {
+    font-size: 0.9rem; 
+  }
+}
+
+
+@media (max-width: 400px), (max-height: 653px) {
+  .navMobile {
+    top: 80px; 
+    height: auto; 
+    max-height: 80vh; 
+    width: 50%; 
+    padding: 10px; 
+    overflow-y: auto; 
+  }
+
+  .menuItem {
+    gap: 4px; 
+  }
+
+  .menuItem a,
+  .dropBtnMobile {
+    font-size: 0.85rem; 
+    padding: 8px 10px; 
+  }
+
+  .mobileDropdownList {
+    padding-left: 5px;
+    gap: 5px;
+  }
+}

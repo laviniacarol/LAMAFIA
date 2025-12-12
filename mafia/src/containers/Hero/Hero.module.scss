@@ -53,7 +53,7 @@
   }
 }
 
-/* MOBILE AJUSTE — texto mais centralizado */
+
 @media (max-width: 768px) {
   .content {
     left: 20px;
@@ -79,5 +79,31 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@media (max-width: 400px), (max-height: 653px) {
+  .container {
+    overflow-x: hidden; 
+  }
+
+  .content {
+    left: 10px; 
+    bottom: 20px; 
+    width: calc(100% - 20px); 
+    text-align: center; 
+  }
+
+  .content h1 {
+    font-size: 1.8rem;
+  }
+
+  .content h2 {
+    font-size: 1rem; 
+  }
+
+  .content button {
+    padding: 6px 12px; 
+    font-size: 0.9rem;
   }
 }
