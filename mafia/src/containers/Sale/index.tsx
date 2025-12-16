@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import styles from "./Sale.module.scss";
 import { useCart } from '../../contexts/CartContext'; 
 
@@ -22,11 +21,11 @@ const Sale: React.FC = () => {
 
   const produtos = [
     { id: "bella-training", img: img1, alt: "Bella Training", preco: "R$ 130,00" },
-    { id: "pink-baby", img: img2, alt: "Pink Baby", preco: "R$ 79,90 - R$ 179,00" },
+    { id: "pink-baby", img: img2, alt: "Pink", preco: "R$ 79,90" },
     { id: "top-azul", img: img3, alt: "Top Azul Elegante", preco: "R$ 79,90" },
     { id: "conjuntinho-faixa", img: img4, alt: "Conjuntinho Faixa Rosa", preco: "R$ 179,00" },
     { id: "conjunto-barbie", img: img5, alt: "Conjunto Barbie Mafia", preco: "R$ 189,00" },
-    { id: "colecao-playboy", img: img6, alt: "Coleção Playboy", preco: "R$ 99 - R$ 129" },
+    { id: "colecao-playboy", img: img6, alt: "Coleção Playboy", preco: "R$ 99" },
     { id: "top-bella", img: img7, alt: "Top Bella", preco: "R$ 112,90" },
     { id: "conjunto-hardworking", img: img8, alt: "Conjunto Hardworking", preco: "R$ 149,90" },
   ];

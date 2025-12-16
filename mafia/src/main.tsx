@@ -1,9 +1,9 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter as Router } from "react-router-dom";
-import { CartProvider } from './contexts/CartContext';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartProvider } from "./contexts/CartContext";
 
-//containers
+// containers
 import Header from "./containers/Header";
 import Hero from "./containers/Hero";
 import Sale from "./containers/Sale";
@@ -13,19 +13,37 @@ import Colab from "./containers/Colab";
 import Acessory from "./containers/Acessory";
 import Footer from "./containers/Footer";
 
-createRoot(document.getElementById("root")!).render(
+// pages
+import User from "./containers/User"; 
+
+const root = document.getElementById("root")!;
+
+createRoot(root).render(
   <React.StrictMode>
     <CartProvider>
-      <Router>
+      <BrowserRouter>
         <Header />
-        <Hero />
-        <Sale />
-        <Man />
-        <Shoes />
-        <Colab />
-        <Acessory />
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Sale />
+                <Man />
+                <Shoes />
+                <Colab />
+                <Acessory />
+              </>
+            }
+          />
+
+          <Route path="/user" element={<User />} />
+        </Routes>
+
         <Footer />
-      </Router>
+      </BrowserRouter>
     </CartProvider>
   </React.StrictMode>
 );

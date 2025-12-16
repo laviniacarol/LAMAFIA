@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./User.module.scss";
 
 type AuthMode = "login" | "register";
@@ -10,6 +11,8 @@ interface UserData {
 }
 
 const User: React.FC = () => {
+  const navigate = useNavigate();
+
   const [mode, setMode] = useState<AuthMode>("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,58 +36,51 @@ const User: React.FC = () => {
       const user = users.find(
         (u) => u.email === email && u.password === password
       );
-      if (user) {
-        setLoggedUser(user);
-        alert(`Bem-vindo(a) ${user.name || "usuário"}!`);
-        setEmail("");
-        setPassword("");
-        setName("");
-      } else {
-        alert("Email ou senha incorretos");
-      }
-    } else {
-      const exists = users.some((u) => u.email === email);
-      if (exists) {
-        alert("Email já cadastrado");
-      } else {
-        const newUser: UserData = { name, email, password };
-        saveUsers([...users, newUser]);
-        alert("Cadastro realizado com sucesso!");
-        setMode("login");
-        setEmail("");
-        setPassword("");
-        setName("");
-      }
-    }
-  };
 
-  const handleLogout = () => {
-    setLoggedUser(null);
+      if (!user) return alert("Email ou senha incorretos");
+
+      setLoggedUser(user);
+    } else {
+      if (users.some((u) => u.email === email)) {
+        return alert("Email já cadastrado");
+      }
+
+      saveUsers([...users, { name, email, password }]);
+      setMode("login");
+    }
+
+    setEmail("");
+    setPassword("");
+    setName("");
   };
 
   if (loggedUser) {
     return (
-      <div className={styles.container}>
-        <h1>Olá, {loggedUser.name || "usuário"}!</h1>
-        <button onClick={handleLogout}>Sair</button>
+      <div className={styles.wrapper}>
+        <div className={styles.box}>
+          <button
+            className={styles.back}
+            onClick={() => navigate("/")}
+            aria-label="Voltar para home"
+          >
+            ←
+          </button>
+
+          <h1>Olá, {loggedUser.name || "usuário"}</h1>
+          <button onClick={() => setLoggedUser(null)}>Sair</button>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className={styles.container}>
-      <div className={`${styles.side} ${styles.left}`}>
-        <h1>Bem-vindo!</h1>
-        <h2>Escolha a opção utilizando o botão abaixo</h2>
-        <p>{mode === "login" ? "Entre na sua conta" : "Crie sua conta"}</p>
-        <button onClick={() => setMode(mode === "login" ? "register" : "login")}>
-          {mode === "login" ? "Registrar" : "Login"}
-        </button>
-      </div>
+    <div className={styles.wrapper}>
+      <div className={styles.box}>
 
-      <div className={`${styles.side} ${styles.right}`}>
-        <h3>Preencha corretamente</h3>
-        <form onSubmit={handleSubmit} className={styles.form}>
+
+        <h1>{mode === "login" ? "Entrar" : "Criar conta"}</h1>
+
+        <form onSubmit={handleSubmit}>
           {mode === "register" && (
             <input
               type="text"
@@ -94,6 +90,7 @@ const User: React.FC = () => {
               required
             />
           )}
+
           <input
             type="email"
             placeholder="Email"
@@ -101,6 +98,7 @@ const User: React.FC = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+
           <input
             type="password"
             placeholder="Senha"
@@ -108,8 +106,34 @@ const User: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">{mode === "login" ? "Login" : "Registrar"}</button>
+
+          <button type="submit">
+            {mode === "login" ? "Entrar" : "Registrar"}
+          </button>
         </form>
+
+        <span className={styles.switch}>
+          {mode === "login" ? (
+            <>
+              Não tem uma conta?{" "}
+              <strong onClick={() => setMode("register")}>
+                Cadastre-se
+              </strong>
+            </>
+          ) : (
+            <>
+              Já tem uma conta?{" "}
+              <strong onClick={() => setMode("login")}>Entrar</strong>
+            </>
+          )}
+        </span>
+            <button
+          className={styles.back}
+          onClick={() => navigate("/")}
+          aria-label="Voltar para home"
+        >
+          ←
+        </button>
       </div>
     </div>
   );

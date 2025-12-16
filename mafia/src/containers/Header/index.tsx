@@ -2,9 +2,10 @@ import { useState } from "react";
 import styles from "./Header.module.scss";
 import logo from "../../assets/imagens/logobella.jpg";
 import { Link } from "react-router-dom";
-import { FaChevronDown, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
+import { FaChevronDown, FaShoppingCart, FaBars } from "react-icons/fa";
 import { useCart } from "../../contexts/CartContext"; 
 import Cart from "../Cart/index"; 
+import { FiUser } from "react-icons/fi";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -88,8 +89,8 @@ function Header() {
         </nav>
 
         <div className={styles.iconGroup}>
-          <Link to="/User">
-            <i className="bx bx-user"></i>
+          <Link to="/User" className={styles.userIcon}>
+          <FiUser size={20} />
           </Link>
 
           <div className={styles.cartBox} onClick={() => setCartOpen(true)}>
@@ -111,7 +112,7 @@ function Header() {
 
       <div className={`${styles.navMobile} ${openMenu ? styles.open : ""}`}>
         <div className={styles.menuItem}>
-          <Link to="/User" onClick={toggleMenu}>
+          <Link to="/user" onClick={toggleMenu}>
             Login / Registro
           </Link>
           <hr />
