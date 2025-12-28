@@ -1,7 +1,7 @@
 
 import styles from "./Colab.module.scss";
-import gigi1 from "../../assets/imagens/gigi1.png";
-import gigi2 from "../../assets/imagens/gigi2.png";
+import gigi1 from "../../assets/imagens/models-photos/gigi1.png";
+import gigi2 from "../../assets/imagens/models-photos/gigi2.png";
 
 function Colab () {
     return (

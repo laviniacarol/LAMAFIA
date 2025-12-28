@@ -1,5 +1,5 @@
-import firstman from "../../assets/imagens/joni.jpg"
-import secondman from "../../assets/imagens/chico.jpg"
+import firstman from "../../assets/imagens/models-photos/joni.jpg"
+import secondman from "../../assets/imagens/models-photos/chico.jpg"
 import styles from './Man.module.scss';
 
 function Man () {
@@ -19,7 +19,7 @@ function Man () {
 
             <img className={styles.firstman} src={firstman} alt="Primeiro Homem" />
             <img className={styles.secondman} src={secondman} alt="Segundo Homem" />
-            
+
         </div>
     );
 }

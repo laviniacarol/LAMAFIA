@@ -1,7 +1,7 @@
 .colabContainer {
   display: flex;
   flex-direction: row;
-  align-items: stretch;            
+  align-items: stretch;
   gap: clamp(10px, 5vw, 40px);
   width: 100%;
   overflow: hidden;
@@ -14,15 +14,15 @@
 .girlImage {
   display: flex;
   flex-direction: row;
-  width: 50%;                   
+  width: 50%;
   height: 100%;
   gap: 0;
 }
 
 .girlImage img {
-  width: 50%;                       
+  width: 50%;
   height: 100%;
-  object-fit: cover;               
+  object-fit: cover;
   display: block;
 }
 
@@ -33,7 +33,7 @@
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: center;        
+  justify-content: center;
   margin: 0;
 }
 
@@ -41,6 +41,7 @@
   display: flex;
   gap: 20px;
   margin-top: 40px;
+  cursor: pointer;
   font-size: clamp(20px, 5vw, 40px);
   margin-left: 0;
 }
@@ -106,7 +107,7 @@
 
 @media (min-width: 770px) {
   .girlImage {
-    min-height: 560px; 
+    min-height: 560px;
   }
 
   .girlImage img {

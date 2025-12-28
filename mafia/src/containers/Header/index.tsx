@@ -1,17 +1,25 @@
 import { useState } from "react";
 import styles from "./Header.module.scss";
 import logo from "../../assets/imagens/logobella.jpg";
-import { Link } from "react-router-dom";
-import { FaChevronDown, FaShoppingCart, FaBars } from "react-icons/fa";
-import { useCart } from "../../contexts/CartContext"; 
-import Cart from "../Cart/index"; 
+import { useNavigate } from "react-router-dom";
+import {
+  FaChevronDown,
+  FaShoppingCart,
+  FaBars,
+} from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
+import { useCart } from "../../contexts/CartContext";
+import { useAuth } from "../../contexts/AuthContext";
+import Cart from "../Cart";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [cartOpen, setCartOpen] = useState(false); 
-  const { cart } = useCart(); 
+  const [cartOpen, setCartOpen] = useState(false);
+
+  const { cart } = useCart();
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
 
   const toggleMenu = () => setOpenMenu(!openMenu);
 
@@ -19,10 +27,24 @@ function Header() {
     setActiveDropdown(activeDropdown === menu ? null : menu);
   };
 
+  function handleUserClick() {
+    navigate("/user"); // ✅ SEM /login
+  }
+
+  function handleLogout() {
+    signOut();
+    navigate("/");
+  }
+
   return (
     <>
       <header className={styles.container}>
-        <img className={styles.logo} src={logo} alt="Logo Bella" />
+        <img
+          className={styles.logo}
+          src={logo}
+          alt="Logo Bella"
+          onClick={() => navigate("/")}
+        />
 
         <nav className={styles.nav}>
           <div
@@ -89,17 +111,28 @@ function Header() {
         </nav>
 
         <div className={styles.iconGroup}>
-          <Link to="/User" className={styles.userIcon}>
-          <FiUser size={20} />
-          </Link>
+          {/* USER */}
+          <button
+            className={styles.userIcon}
+            onClick={handleUserClick}
+            aria-label="Usuário"
+            type="button"
+          >
+            <FiUser size={20} />
+          </button>
 
-          <div className={styles.cartBox} onClick={() => setCartOpen(true)}>
+          {/* CART */}
+          <div
+            className={styles.cartBox}
+            onClick={() => setCartOpen(true)}
+          >
             <FaShoppingCart size={20} />
             {cart.length > 0 && (
               <span className={styles.cartCount}>{cart.length}</span>
             )}
           </div>
 
+          {/* MOBILE */}
           <FaBars
             className={styles.menuIcon}
             onClick={toggleMenu}
@@ -108,29 +141,51 @@ function Header() {
         </div>
       </header>
 
-      {openMenu && <div className={styles.overlay} onClick={toggleMenu}></div>}
+      {openMenu && (
+        <div
+          className={styles.overlay}
+          onClick={toggleMenu}
+        />
+      )}
 
-      <div className={`${styles.navMobile} ${openMenu ? styles.open : ""}`}>
+      <div
+        className={`${styles.navMobile} ${
+          openMenu ? styles.open : ""
+        }`}
+      >
         <div className={styles.menuItem}>
-          <Link to="/user" onClick={toggleMenu}>
-            Login / Registro
-          </Link>
+          <button
+            onClick={() => {
+              handleUserClick();
+              toggleMenu();
+            }}
+          >
+            {user ? "Minha conta" : "Login / Registro"}
+          </button>
           <hr />
         </div>
+
+        {user && (
+          <div className={styles.menuItem}>
+            <button
+              onClick={() => {
+                handleLogout();
+                toggleMenu();
+              }}
+            >
+              Sair
+            </button>
+            <hr />
+          </div>
+        )}
+
         <div className={styles.menuItem}>
           <a onClick={toggleMenu}>Rastreio</a>
           <hr />
         </div>
+
         <div className={styles.menuItem}>
           <a onClick={toggleMenu}>Suporte</a>
-          <hr />
-        </div>
-        <div className={styles.menuItem}>
-          <a onClick={toggleMenu}>Enviados</a>
-          <hr />
-        </div>
-        <div className={styles.menuItem}>
-          <a onClick={toggleMenu}>Ajuda</a>
           <hr />
         </div>
       </div>

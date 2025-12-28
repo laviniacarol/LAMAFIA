@@ -1,12 +1,12 @@
 import { useState } from "react";
 import styles from "./Shoes.module.scss";
-import { useCart } from '../../contexts/CartContext'; 
+import { useCart } from '../../contexts/CartContext';
 
-import tenisban from '../../assets/imagens/tenisban.png'
-import tenis1 from '../../assets/imagens/tenis1.jpg'
-import tenis2 from '../../assets/imagens/tenis2.jpg'
-import tenis3 from '../../assets/imagens/tenis3.jpg'
-import tenis4 from '../../assets/imagens/tenis4.jpg'
+import tenisban from '../../assets/imagens/shoes/tenisban.png'
+import tenis1 from '../../assets/imagens/shoes/tenis1.jpg'
+import tenis2 from '../../assets/imagens/shoes/tenis2.jpg'
+import tenis3 from '../../assets/imagens/shoes/tenis3.jpg'
+import tenis4 from '../../assets/imagens/shoes/tenis4.jpg'
 
 import Cart from "../Cart";
 

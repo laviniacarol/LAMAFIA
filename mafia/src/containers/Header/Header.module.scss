@@ -50,6 +50,8 @@
     svg {
       display: flex;
       align-items: center;
+      justify-content: center;
+
     }
 
     .cartBox {
@@ -80,9 +82,15 @@
   }
 
 
-  .userIcon {
-    color: black;
-  }
+ .userIcon {
+  background: none;
+  border: none;
+  color: black;
+  position: relative;
+  top: clamp(-8px, 2vw, -8px);
+  cursor: pointer;
+}
+
 
 }
 

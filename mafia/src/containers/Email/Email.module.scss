@@ -1,0 +1,94 @@
+.container {
+    flex-direction: row;
+    padding-top: clamp(40px, 5vw, 80px);
+    display: flex;
+    border: 1px solid #e5e5e5;
+    padding: clamp(20px, 3vw, 120px);
+    font-family: Helvetica, sans-serif;
+}
+
+.containerRight {
+    width: 50%;
+    display: flex;
+    margin-top: -63px;
+    flex-direction: column;
+    font-family: Helvetica, sans-serif;
+    padding: clamp(20px, 3vw, 30px);
+    box-sizing: border-box;
+}
+
+.containerRight h2 {
+    font-size: clamp(24px, 5vw, 36px);
+    margin-bottom: clamp(15px, 3vw, 5px);
+    color: rgb(19, 19, 19);
+}
+
+.containerRight p {
+    font-size: clamp(16px, 2.5vw, 20px);
+    line-height: 1.2;
+    width: 80%;
+    color: rgb(104, 103, 103);
+    margin-bottom: clamp(20px, 3vw, 30px);
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 420px;
+  font-size: clamp(14px, 2.5vw, 18px);
+}
+
+.form label {
+  margin-bottom: clamp(6px, 1.5vw, 10px);
+  font-size: inherit;
+  font-weight: 500;
+  color: rgb(34, 34, 34);
+}
+
+.form input {
+  width: 100%;
+  padding: clamp(12px, 2.5vw, 14px);
+  font-size: inherit;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  margin-bottom: clamp(14px, 3vw, 20px);
+}
+
+.form input::placeholder {
+  color: #777;
+}
+
+.form input:focus {
+  outline: 2px solid #2a0cd4;
+  outline-offset: 2px;
+}
+
+.button {
+  width: 100%;
+  padding: clamp(12px, 3vw, 16px);
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: 700;
+}
+
+.button:focus {
+  outline: 2px solid #2a0cd4;
+  outline-offset: 2px;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.form input:required:invalid {
+  border-color: #c00000;
+}
+
+.form input:required:valid {
+  border-color: #000;
+}

@@ -1,17 +1,17 @@
 import { useState } from "react";
 import styles from "./Sale.module.scss";
-import { useCart } from '../../contexts/CartContext'; 
+import { useCart } from '../../contexts/CartContext';
 
 import banner from "../../assets/imagens/banner.png";
 
-import img1 from "../../assets/imagens/1.jpg";
-import img2 from "../../assets/imagens/2.jpg";
-import img3 from "../../assets/imagens/3.jpg";
-import img4 from "../../assets/imagens/4.jpg";
-import img5 from "../../assets/imagens/5.jpg";
-import img6 from "../../assets/imagens/6.jpg";
-import img7 from "../../assets/imagens/7.jpg";
-import img8 from "../../assets/imagens/8.jpg";
+import img1 from "../../assets/imagens/gym-girls/1.jpg";
+import img2 from "../../assets/imagens/gym-girls/2.jpg";
+import img3 from "../../assets/imagens/gym-girls/3.jpg";
+import img4 from "../../assets/imagens/gym-girls/4.jpg";
+import img5 from "../../assets/imagens/gym-girls/5.jpg";
+import img6 from "../../assets/imagens/gym-girls/6.jpg";
+import img7 from "../../assets/imagens/gym-girls/7.jpg";
+import img8 from "../../assets/imagens/gym-girls/8.jpg";
 
 import Cart from "../Cart";
 

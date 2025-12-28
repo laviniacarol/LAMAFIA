@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./User.module.scss";
+import { useAuth } from "../../contexts/AuthContext";
 
 type AuthMode = "login" | "register";
 
@@ -12,6 +13,7 @@ interface UserData {
 
 const User: React.FC = () => {
   const navigate = useNavigate();
+  const { signIn, signOut } = useAuth();
 
   const [mode, setMode] = useState<AuthMode>("login");
   const [email, setEmail] = useState("");
@@ -40,6 +42,7 @@ const User: React.FC = () => {
       if (!user) return alert("Email ou senha incorretos");
 
       setLoggedUser(user);
+      signIn({ name: user.name, email: user.email });
     } else {
       if (users.some((u) => u.email === email)) {
         return alert("Email já cadastrado");
@@ -67,7 +70,15 @@ const User: React.FC = () => {
           </button>
 
           <h1>Olá, {loggedUser.name || "usuário"}</h1>
-          <button onClick={() => setLoggedUser(null)}>Sair</button>
+
+          <button
+            onClick={() => {
+              setLoggedUser(null);
+              signOut();
+            }}
+          >
+            Sair
+          </button>
         </div>
       </div>
     );
@@ -76,8 +87,6 @@ const User: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.box}>
-
-
         <h1>{mode === "login" ? "Entrar" : "Criar conta"}</h1>
 
         <form onSubmit={handleSubmit}>
@@ -123,11 +132,14 @@ const User: React.FC = () => {
           ) : (
             <>
               Já tem uma conta?{" "}
-              <strong onClick={() => setMode("login")}>Entrar</strong>
+              <strong onClick={() => setMode("login")}>
+                Entrar
+              </strong>
             </>
           )}
         </span>
-            <button
+
+        <button
           className={styles.back}
           onClick={() => navigate("/")}
           aria-label="Voltar para home"
