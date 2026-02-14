@@ -4,6 +4,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { CartProvider } from "./contexts/CartContext";
 import { AuthProvider } from "./contexts/AuthContext";
+import { ToastProvider } from "./contexts/ToastContext";
+
+// components
+import Toast from "./components/Toast";
 
 // containers
 import Header from "./containers/Header";
@@ -18,6 +22,7 @@ import Email from "./containers/Email";
 
 // pages
 import User from "./containers/User";
+import NotFound from "./pages/NotFound";
 
 
 const root = document.getElementById("root")!;
@@ -26,8 +31,10 @@ createRoot(root).render(
   <React.StrictMode>
     <AuthProvider>
       <CartProvider>
-        <BrowserRouter>
-          <Header />
+        <ToastProvider>
+          <BrowserRouter>
+            <Toast />
+            <Header />
 
           <Routes>
             <Route
@@ -46,10 +53,12 @@ createRoot(root).render(
             />
 
             <Route path="/user" element={<User />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
 
           <Footer />
-        </BrowserRouter>
+          </BrowserRouter>
+        </ToastProvider>
       </CartProvider>
     </AuthProvider>
   </React.StrictMode>

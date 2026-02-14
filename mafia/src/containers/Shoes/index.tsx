@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Shoes.module.scss";
 import { useCart } from '../../contexts/CartContext';
+import { useToast } from '../../contexts/ToastContext';
 
 import tenisban from '../../assets/imagens/shoes/tenisban.png'
 import tenis1 from '../../assets/imagens/shoes/tenis1.jpg'
@@ -12,6 +13,7 @@ import Cart from "../Cart";
 
 function Shoes() {
   const { addToCart } = useCart();
+  const { addToast } = useToast();
   const [cartOpen, setCartOpen] = useState(false);
 
   const products = [
@@ -28,6 +30,7 @@ function Shoes() {
       alt: product.alt,
       price: product.price,
     });
+    addToast(`${product.alt} adicionado ao carrinho!`, 'success');
     setCartOpen(true);
   };
 

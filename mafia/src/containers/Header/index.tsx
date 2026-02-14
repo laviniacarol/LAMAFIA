@@ -28,7 +28,7 @@ function Header() {
   };
 
   function handleUserClick() {
-    navigate("/user"); // ✅ SEM /login
+    navigate("/user");
   }
 
   function handleLogout() {

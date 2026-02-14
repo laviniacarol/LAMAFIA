@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Sale.module.scss";
 import { useCart } from '../../contexts/CartContext';
+import { useToast } from '../../contexts/ToastContext';
 
 import banner from "../../assets/imagens/banner.png";
 
@@ -17,6 +18,7 @@ import Cart from "../Cart";
 
 const Sale: React.FC = () => {
   const { addToCart } = useCart();
+  const { addToast } = useToast();
   const [cartOpen, setCartOpen] = useState(false);
 
   const produtos = [
@@ -37,6 +39,7 @@ const Sale: React.FC = () => {
       alt: produto.alt,
       price: produto.preco.split(" - ")[0],
     });
+    addToast(`${produto.alt} adicionado ao carrinho!`, 'success');
     setCartOpen(true);
   };
 

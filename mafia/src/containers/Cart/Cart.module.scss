@@ -41,6 +41,20 @@
   font-size: 1.5rem;
   cursor: pointer;
   color: #333;
+  transition: all 0.3s ease;
+  padding: 5px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: #f0f0f0;
+    color: #ff0000;
+    transform: rotate(90deg);
+  }
 }
 
 .items {
@@ -88,29 +102,63 @@
 .quantity {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   button {
-    background: #eee;
+    background: black;
     border: none;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     cursor: pointer;
     border-radius: 50%;
     font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
   }
   span {
     font-weight: 600;
+    font-size: 16px;
+    min-width: 25px;
+    text-align: center;
+    color: #333;
   }
 }
 
 .removeBtn {
-  background: #ff0000;
+  background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
   color: #fff;
   border: none;
-  padding: 5px 10px;
+  padding: 8px 14px;
   cursor: pointer;
-  border-radius: 5px;
-  font-size: 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 65, 108, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 65, 108, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 }
 
 .footer {
@@ -127,15 +175,30 @@
 }
 
 .checkoutBtn {
-  background: #000;
+  background: linear-gradient(135deg, #000000 0%, #434343 100%);
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 14px 20px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 8px;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   width: 100%;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #434343 0%, #000000 100%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {

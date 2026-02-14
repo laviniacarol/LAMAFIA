@@ -1,5 +1,6 @@
 import React from 'react';
-import { useCart } from '../../contexts/CartContext'; 
+import { useCart } from '../../contexts/CartContext';
+import { useToast } from '../../contexts/ToastContext';
 import styles from './Cart.module.scss';
 
 interface CartProps {
@@ -9,6 +10,12 @@ interface CartProps {
 
 const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
   const { cart, removeFromCart, updateQuantity, total } = useCart();
+  const { addToast } = useToast();
+
+  const handleRemove = (id: string, name: string) => {
+    removeFromCart(id);
+    addToast(`${name} removido do carrinho`, 'info');
+  };
 
   if (!isOpen) return null;
 
@@ -35,7 +42,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose }) => {
                     <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
                   </div>
                 </div>
-                <button className={styles.removeBtn} onClick={() => removeFromCart(item.id)}>Remover</button>
+                <button className={styles.removeBtn} onClick={() => handleRemove(item.id, item.alt)}>Remover</button>
               </div>
             ))
           )}

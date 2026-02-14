@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from './Acessory.module.scss'
-import { useCart } from '../../contexts/CartContext'; 
+import { useCart } from '../../contexts/CartContext';
+import { useToast } from '../../contexts/ToastContext';
 
 import luvarosa from '../../assets/imagens/luvarosa.jpg'
 import saco from '../../assets/imagens/saco.jpeg'
@@ -11,6 +12,7 @@ import Cart from "../Cart";
 
 function Acessory() {
   const { addToCart } = useCart();
+  const { addToast } = useToast();
   const [cartOpen, setCartOpen] = useState(false);
 
   const products = [
@@ -27,6 +29,7 @@ function Acessory() {
       alt: product.alt,
       price: product.price,
     });
+    addToast(`${product.alt} adicionado ao carrinho!`, 'success');
     setCartOpen(true);
   };
 
@@ -51,8 +54,8 @@ function Acessory() {
               <i className="bx bxs-star-half"></i>
             </div>
             <span className={styles.price}>{item.price}</span>
-            <button 
-              className={styles.button} 
+            <button
+              className={styles.button}
               onClick={() => handleAddToCart(item)}
             >
               COMPRE AGORA
