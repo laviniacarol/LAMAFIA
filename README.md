@@ -3,7 +3,7 @@
 LA BELLA MAFIA – Front End
 *  Sobre
 
-Este repositório contém a interface front-end de um site de loja de roupas construída para fins de aprendizado e prática. O layout foi criado sem uso de ferramentas de design prévias, com foco em aplicação direta de HTML, CSS/SCSS e TypeScript/JavaScript.
+Este repositório contém a interface front-end de um site de loja de roupas construída para fins de aprendizado e prática, possui responsividade para dispostivos móveis e outras telas. O layout foi criado sem uso de ferramentas de design prévias, com foco em aplicação direta de HTML, CSS/SCSS e TypeScript/JavaScript.
 
 * Tecnologias
 
